@@ -56,8 +56,8 @@ df["username"]=df["username"].str.lower()
 
 ########################################################## Dash        
 
-fig1 =px.sunburst(df, path=['title', 'topic'], values='duration')
-fig2 =px.sunburst(df, path=['username'], values='duration')
+fig1 =px.sunburst(df, path=['startYear','startMonth','title', 'topic'], values='duration')
+fig2 =px.sunburst(df, path=['startYear','startMonth','username'], values='duration')
 
 fig1.update_layout(
     title={
