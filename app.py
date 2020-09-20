@@ -76,7 +76,8 @@ fig2.update_layout(
         'yanchor': 'top'
     })
     
-app =dash.Dash()
+app = dash.Dash(__name__)
+server = app.server
 app.layout=html.Div([
    
     html.Div([html.A([html.H2('Nitrous Dashboard'),html.Img(src='/assets/ants.png')], href='https://www.antscoin.org/')],className="banner"),
@@ -102,5 +103,5 @@ app.layout=html.Div([
 
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run_server(debug=True)
