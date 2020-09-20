@@ -22,17 +22,17 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 import os 
 
-########################################## Talking to Firebase 
-# credential_path = 'D:\\Projects\\Nitros Application v2\\fire.json'
-# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
-# cred = credentials.Certificate(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
-# firebase_admin.initialize_app(cred)
-# db = firestore.client()
-# Actions = list(db.collection(u'Nitrous').document(u'Actions').collection(u'Actions').stream())
-# Actions = list(map(lambda x: x.to_dict(), Actions))
+######################################### Talking to Firebase 
+credential_path = 'D:\\Projects\\Nitros Application v2\\fire.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
+cred = credentials.Certificate(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
+firebase_admin.initialize_app(cred)
+db = firestore.client()
+Actions = list(db.collection(u'Nitrous').document(u'Actions').collection(u'Actions').stream())
+Actions = list(map(lambda x: x.to_dict(), Actions))
 
 ######################################### Data Wrangling 
-df = pd.read_excel('dataframe.xlsx')
+df = pd.DataFrame(Actions)
 df.loc[df['username'].isnull(),'username'] = df['userName']
 #Dropping
 df=df.drop(['formattedDate','endMonth','endDay','endYear','id','status','value','userName','userID','factor','status'],1)
