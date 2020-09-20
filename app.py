@@ -17,7 +17,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt 
 import seaborn as sns; sns.set()
-
+import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 import os 
