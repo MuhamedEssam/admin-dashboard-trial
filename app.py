@@ -72,7 +72,7 @@ df.dropna(subset=['powerBar'], inplace = True)
 df=df.reset_index(drop=True)
 users = df['username'].unique()
 dataframes=[]
-banned_list =['hossary','mostafa','mostaf']
+banned_list =['hossary','mostafa','mostaf','yyyy']
 i=-1
 Names=[]
 for j, user in enumerate( users) :
@@ -189,7 +189,7 @@ for k in range(N-1):
     dataforml[k]['Total Hours']=dataforml[k].iloc[:,:7].sum(axis=1)
 
 #ML Part
-    
+
 data=pd.read_csv('Nitrous.csv')
 Features=data.iloc[:,:8].values
 Labels=data.iloc[:,9:].values
@@ -219,7 +219,7 @@ current_states=[0]*N
 for k in range (N-1):
     current_states[k]= Final[k].iloc[:,9:].sum(axis=0)+50
 ########################################################## Dash        
-
+df.dropna(inplace=True)  
 fig1 =px.sunburst(df, path=['startYear','startMonth','title', 'topic'], values='duration')
 fig2 =px.sunburst(df, path=['startYear','startMonth','username'], values='duration')
 
