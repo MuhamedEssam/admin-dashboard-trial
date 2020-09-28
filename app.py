@@ -190,7 +190,7 @@ for k in range(N-1):
 
 #ML Part
 
-data=pd.read_csv('Nitrous.csv')
+data=pd.read_excel('Nitrous.xlsx')
 Features=data.iloc[:,:8].values
 Labels=data.iloc[:,9:].values
 #Setting 20 % of the Data for Testing 
