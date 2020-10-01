@@ -276,7 +276,7 @@ server = app.server
 app.title = 'Nitrous Admin Dashboard'
 app.layout=html.Div([
    
-    html.Div([html.A([html.H2('Nitrous Dashboard'),html.Img(src='/assets/ants.png')], href='https://www.antscoin.org/')],className="banner"),
+    html.Div([html.A([html.H2('Nitrous Dashboard'),html.Img(src='/assets/nitrous-logo.png')], href='http://projectnitrous.com/')],className="banner"),
 
     
     
