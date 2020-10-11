@@ -36,17 +36,17 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # ###################################################### Talking to Firebase 
-# credential_path = 'D:\\Projects\\Nitros Application v2\\fire.json'
-# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
-# cred = credentials.Certificate(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
-# firebase_admin.initialize_app(cred)
-# db = firestore.client()
-# Actions = list(db.collection(u'Nitrous').document(u'Actions').collection(u'Actions').stream())
-# Actions = list(map(lambda x: x.to_dict(), Actions))
+credential_path = './fire.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
+cred = credentials.Certificate(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
+firebase_admin.initialize_app(cred)
+db = firestore.client()
+Actions = list(db.collection(u'Nitrous').document(u'Actions').collection(u'Actions').stream())
+Actions = list(map(lambda x: x.to_dict(), Actions))
 
 ######################################################### Python
 
-df = pd.read_excel('dataframe.xlsx')
+df = pd.DataFrame(Actions)
 #Merging 
 df.loc[df['username'].isnull(),'username'] = df['userName']
 df=df.drop(['formattedDate','endMonth','endDay','endYear','id','status','value','userName','userID','factor','status'],1)
