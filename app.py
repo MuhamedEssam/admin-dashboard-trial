@@ -93,7 +93,7 @@ def Nitrous():
 
             dataframes.append(df_user)
             # to export  to excel 
-            dataframes[i].to_excel(str(user)+'_df.xlsx')
+            #dataframes[i].to_excel(str(user)+'_df.xlsx')
     N=len(users)-len(banned_list)
     x=pd.to_datetime(dataframes[1][['year', 'month', 'day', 'hour', 'minute']])
     g=pd.DataFrame(x,columns=['date'])
@@ -241,7 +241,7 @@ def Nitrous():
                             u'class6': int(current_states[k][5]),
             })
         except:
-            print ('This User '+str(Names[k]+' has no actions'))
+            pass
         
     ########################################################## Dash        
     df.dropna(inplace=True)  
@@ -296,9 +296,6 @@ def Nitrous():
             'yanchor': 'top'
         })
 
-    app = dash.Dash(__name__)
-    server = app.server
-    app.title = 'Nitrous Admin Dashboard'
     app.layout=html.Div([
 
         html.Div([html.A([html.H2('Nitrous Dashboard'),html.Img(src='/assets/nitrous-logo.png')], href='http://projectnitrous.com/')],className="banner"),
@@ -315,6 +312,10 @@ def Nitrous():
 
       ])
 
+app =dash.Dash()
+app = dash.Dash(__name__)
+server = app.server
+app.title = 'Nitrous Admin Dashboard'
 Nitrous() 
 
   
